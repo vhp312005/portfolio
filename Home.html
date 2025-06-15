@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Engineer Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --text-color: #e5e7eb;
+            --bg-color: var(--background);
+            --card-bg: #111827;
+            --nav-bg: #1f2937;
+            --hover-color: #2d3b4b;
+            --border-color: #374151;
+            --light-bg: #1f2937;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-color);
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--background);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--nav-bg);
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.5),
+                0 10px 20px rgba(0,0,0,0.4),
+                inset 0 0 30px rgba(0,0,0,0.4),
+                0 0 0 10px rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+            background-color: var(--nav-bg);
+        }
+
+        .hero-image img:not([src]), 
+        .hero-image img[src=""],
+        .hero-image img[src="profile.jpg"]:not([src*="data:"]) {
+            content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%231f2937'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%233b82f6'%3EProfile Image%3C/text%3E%3C/svg%3E");
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.03);
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.6),
+                0 15px 30px rgba(0,0,0,0.5),
+                inset 0 0 40px rgba(0,0,0,0.5),
+                0 0 0 15px rgba(255,255,255,0.08);
+            filter: drop-shadow(0 15px 20px rgba(0,0,0,0.5));
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--bg-color);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: var(--card-bg);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            background: var(--nav-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .skill-card ul li {
+            color: var(--text-color);
+        }
+
+        /* Projects Section */
+        #projects {
+            background: var(--bg-color);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--nav-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--card-bg);
+        }
+
+        .contact-content {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .contact-item a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--hover-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: var(--nav-bg);
+                flex-direction: column;
+                padding: 5rem 2rem;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem 0;
+                display: block;
+                width: 100%;
+            }
+
+            .nav-links a::after {
+                bottom: 0;
+                left: 0;
+                transform: none;
+                width: 0;
+            }
+
+            .nav-links a:hover::after {
+                width: 100%;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Additional Dark Theme Styles */
+        .section-title {
+            color: var(--primary-color);
+        }
+
+        .subtitle {
+            color: var(--secondary-color);
+        }
+
+        .hero-image img {
+            border: 5px solid var(--nav-bg);
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.5),
+                0 10px 20px rgba(0,0,0,0.4),
+                inset 0 0 30px rgba(0,0,0,0.4),
+                0 0 0 10px rgba(255,255,255,0.05);
+        }
+
+        .hero-image img:hover {
+            box-shadow: 
+                0 30px 60px rgba(0,0,0,0.6),
+                0 15px 30px rgba(0,0,0,0.5),
+                inset 0 0 40px rgba(0,0,0,0.5),
+                0 0 0 15px rgba(255,255,255,0.08);
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--nav-bg);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+
+        /* Add loading animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--nav-bg);
+            border-top-color: var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Contact form styles */
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--nav-bg);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #10B981;
+            color: white;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #EF4444;
+            color: white;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add loading animation -->
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <nav>
+        <div class="nav-content">
+            <div class="logo">ML Portfolio</div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="nav-links">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            // Toggle between bars and times icon
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close mobile menu when clicking a link
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                navLinks.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            }
+        });
+
+        // Add image error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileImg = document.querySelector('.hero-image img');
+            profileImg.onerror = function() {
+                this.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%231f2937'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%233b82f6'%3EProfile Image%3C/text%3E%3C/svg%3E";
+            };
+
+            // Check if profile image exists
+            fetch('profile.jpg')
+                .then(response => {
+                    if (!response.ok) {
+                        profileImg.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%231f2937'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%233b82f6'%3EProfile Image%3C/text%3E%3C/svg%3E";
+                    }
+                })
+                .catch(() => {
+                    profileImg.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%231f2937'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%233b82f6'%3EProfile Image%3C/text%3E%3C/svg%3E";
+                });
+        });
+
+        // Add loading animation handling
+        window.addEventListener('load', function() {
+            const loader = document.querySelector('.loading');
+            loader.classList.add('hidden');
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        });
+
+        // Add form handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formMessage = document.getElementById('formMessage');
+            const formData = new FormData(this);
+            
+            // Simulate form submission (replace with actual form submission)
+            formMessage.textContent = 'Thank you for your message! I will get back to you soon.';
+            formMessage.className = 'form-message success';
+            this.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        });
+    </script>
+
+    <section id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Hi, I'm [Your Name]</h1>
+                <p class="subtitle">Machine Learning Engineer</p>
+                <p>Passionate about building intelligent systems and solving complex problems through machine learning and artificial intelligence.</p>
+            </div>
+            <div class="hero-image">
+                <img src="profile.jpg" alt="Profile Picture">
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <p>I am a Machine Learning Engineer with 3 years of experience in developing and deploying machine learning models. My expertise lies in natural language processing, computer vision, and deep learning. I have a strong foundation in Python, TensorFlow, and PyTorch, and I'm passionate about creating innovative solutions that make a real impact.</p>
+        <br>
+        <p>Throughout my career, I've worked on various projects ranging from recommendation systems to computer vision applications. I enjoy tackling complex problems and turning them into elegant, efficient solutions.</p>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Machine Learning</h3>
+                <ul>
+                    <li>Deep Learning</li>
+                    <li>Natural Language Processing</li>
+                    <li>Computer Vision</li>
+                    <li>Reinforcement Learning</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Programming</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>TensorFlow</li>
+                    <li>PyTorch</li>
+                    <li>SQL</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3>Tools & Technologies</h3>
+                <ul>
+                    <li>Git & GitHub</li>
+                    <li>Docker</li>
+                    <li>AWS/Azure</li>
+                    <li>CI/CD</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Sentiment Analysis System</h3>
+                    <p>Developed a real-time sentiment analysis system using BERT that processes customer feedback with 92% accuracy.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Image Classification Model</h3>
+                    <p>Built a CNN-based image classification model for medical imaging that achieved 95% accuracy in disease detection.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Recommendation Engine</h3>
+                    <p>Created a personalized recommendation system using collaborative filtering that improved user engagement by 40%.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-content">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:your.email@example.com">your.email@example.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+            </div>
+        </div>
+        
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+            <div class="form-message" id="formMessage"></div>
+        </form>
+    </section>
+</body>
+</html>
