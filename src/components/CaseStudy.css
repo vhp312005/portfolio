@@ -1,0 +1,254 @@
+.case-study {
+  min-height: 100vh;
+  background-color: #0a0f1c;
+  color: #e2e8f0;
+  padding: 2rem;
+}
+
+.case-study-not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #0a0f1c;
+  color: #e2e8f0;
+  text-align: center;
+  padding: 2rem;
+}
+
+.case-study-not-found h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #60a5fa;
+}
+
+.case-study-not-found p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #94a3b8;
+}
+
+.case-study-header {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 2rem 0;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  color: #94a3b8;
+}
+
+.breadcrumb a {
+  color: #60a5fa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #93c5fd;
+}
+
+.separator {
+  color: #475569;
+}
+
+.case-study-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #60a5fa 0%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.case-study-subtitle {
+  font-size: 1.5rem;
+  color: #94a3b8;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.case-study-meta {
+  display: flex;
+  gap: 1rem;
+}
+
+.domain, .type {
+  background-color: #1a2234;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: #60a5fa;
+}
+
+.case-study-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.case-study-content section {
+  margin-bottom: 4rem;
+}
+
+.case-study-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #60a5fa;
+  text-align: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  background-color: #1a2234;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.stat-value {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #60a5fa;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+.challenges-grid, .features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.challenge-card, .feature-card {
+  background-color: #1a2234;
+  padding: 2rem;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.challenge-card:hover, .feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.challenge-card h3, .feature-card h3 {
+  font-size: 1.5rem;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.tech-category {
+  background-color: #1a2234;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.tech-category h3 {
+  color: #60a5fa;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.tech-category ul {
+  list-style: none;
+  padding: 0;
+}
+
+.tech-category li {
+  color: #94a3b8;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #1e293b;
+}
+
+.tech-category li:last-child {
+  border-bottom: none;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.result-card {
+  background-color: #1a2234;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.result-value {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+}
+
+.result-card h3 {
+  font-size: 1.3rem;
+  color: #60a5fa;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.result-card p {
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .case-study {
+    padding: 1rem;
+  }
+
+  .case-study-title {
+    font-size: 2.5rem;
+  }
+
+  .case-study-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .stats-grid, .challenges-grid, .features-grid, .tech-grid, .results-grid {
+    grid-template-columns: 1fr;
+  }
+} 

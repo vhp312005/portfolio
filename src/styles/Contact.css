@@ -1,0 +1,454 @@
+.contact-page {
+  background-color: var(--background);
+  color: #FFFFFF;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.contact-hero-section {
+  background: var(--background);
+  padding: 100px 20px 200px;
+  text-align: center;
+  color: #FFFFFF;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-hero-section h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
+  line-height: 1.2em;
+}
+
+.contact-hero-section .hero-subtitle {
+  font-size: 1.5rem;
+  color: #FFFFFF;
+  line-height: 1.5em;
+}
+
+/* Reviews Section */
+.reviews-section {
+  padding: 40px 20px;
+  background-color: var(--background);
+}
+
+.reviews-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.review-card {
+  flex: 1 1 auto;
+  min-width: 280px;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.review-card .review-icon {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.review-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+}
+
+.review-card p {
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  margin-bottom: 1rem;
+}
+
+.review-card a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.review-card a:hover {
+  color: var(--secondary);
+}
+
+/* Main Contact Section */
+.main-contact-section {
+  padding: 80px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.form-and-info-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+.contact-form-container {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #FFFFFF;
+  text-align: left;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background-color: var(--background);
+  color: #FFFFFF;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #CCCCCC;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.file-upload-group input[type="file"] {
+  display: none;
+}
+
+.file-upload-group label {
+  background-color: var(--surface);
+  border: 1px dashed var(--border-color);
+  padding: 2rem;
+  display: block;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  color: #FFFFFF;
+  transition: background-color 0.3s ease;
+}
+
+.file-upload-group label:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.file-upload-group .small-text {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #FFFFFF;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-top: 0;
+}
+
+.checkbox-group label {
+  margin-bottom: 0;
+  color: #FFFFFF;
+}
+
+.submit-button {
+  background: var(--gradient);
+  color: #FFFFFF;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-md);
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Direct Contact Info */
+.direct-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 2rem;
+}
+
+.contact-item {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-item .contact-icon {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.contact-item h3 {
+  font-size: 1.4rem;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
+.contact-item a {
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contact-item a:hover {
+  color: var(--primary);
+}
+
+.book-meeting-item p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
+}
+
+.book-meeting-item .cta-button {
+  width: 100%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .contact-hero-section h1 {
+    font-size: 3rem;
+    color: #FFFFFF;
+  }
+
+  .form-and-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .direct-contact-info {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .contact-item {
+    flex: 1 1 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero-section h1 {
+    font-size: 2.5rem;
+    color: #FFFFFF;
+  }
+
+  .contact-hero-section .hero-subtitle {
+    font-size: 1.2rem;
+    color: #FFFFFF;
+  }
+
+  .reviews-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .review-card {
+    width: 100%;
+  }
+
+  .main-contact-section {
+    padding: 60px 15px;
+    color: #FFFFFF;
+  }
+
+  .contact-form-container {
+    padding: 1.5rem;
+  }
+
+  .contact-form-container h2 {
+    font-size: 1.8rem;
+    color: #FFFFFF;
+  }
+
+  .direct-contact-info {
+    flex-direction: column;
+  }
+
+  .contact-item {
+    width: 100%;
+    max-width: none;
+  }
+
+  .review-card p {
+    color: #FFFFFF;
+  }
+
+  .contact-item a {
+    color: #FFFFFF;
+  }
+
+  .book-meeting-item p {
+    color: #FFFFFF;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-hero-section h1 {
+    font-size: 2rem;
+    color: #FFFFFF;
+  }
+
+  .reviews-section {
+    padding: 20px 15px;
+    color: #FFFFFF;
+  }
+
+  .review-card {
+    padding: 1rem;
+  }
+
+  .contact-form-container h2 {
+    font-size: 1.5rem;
+    color: #FFFFFF;
+  }
+
+  .submit-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    color: #FFFFFF;
+  }
+
+  .review-card p {
+    color: #FFFFFF;
+  }
+}
+
+/* Footer Contact Info Section */
+.footer-contact-info-section {
+  padding: 80px 20px;
+  background-color: var(--surface);
+  color: #FFFFFF;
+}
+
+.footer-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contact-col h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
+}
+
+.contact-col p,
+.contact-col address {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+}
+
+.contact-col a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contact-col a:hover {
+  color: var(--secondary);
+}
+
+.contact-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-col ul li {
+  margin-bottom: 0.5rem;
+  color: #FFFFFF;
+}
+
+/* Responsive adjustments for footer */
+@media (max-width: 768px) {
+  .footer-contact-info-section {
+    padding: 40px 15px;
+  }
+
+  .footer-contact-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .contact-col h3 {
+    margin-top: 1.5rem;
+  }
+} 

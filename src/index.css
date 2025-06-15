@@ -1,0 +1,539 @@
+/* Global Variables */
+:root {
+  --primary: #00f2fe;
+  --secondary: #4facfe;
+  --accent: #7367f0;
+  --background: #0a0a0a;
+  --surface: #1a1a1a;
+  --text: #ffffff;
+  --text-secondary: #a0a0a0;
+  --gradient: linear-gradient(135deg, var(--primary), var(--accent));
+  --navbar-height: 80px;
+  --page-padding-top: calc(var(--navbar-height) + 1rem); /* Added small space below navbar */
+  --scrollbar-width: 12px;
+  
+  /* Dark Theme Colors */
+  --bg-color: var(--background); /* Unifying with --background for a single shade */
+  --card-bg: #111827; /* Darker card background */
+  --nav-bg: var(--background); /* Changed to use the main background variable */
+  --text-color: #e2e8f0;
+  --primary-color: #3b82f6;
+  --hover-color: #2563eb; /* Original hover color */
+  --border-color: #1e293b;
+  --accent-color: #60a5fa;
+  --gradient-start: #111827;
+  --gradient-end: #0a0f1c;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --card-shadow: 0 4px 6px var(--shadow-color);
+  --hover-shadow: 0 8px 12px var(--shadow-color);
+  
+  /* New navbar colors - RESTORE ORIGINAL */
+  --nav-text: #e2e8f0;  /* Original light text color for dark theme */
+  --nav-hover: #60a5fa;  /* Original bright blue hover color */
+  --nav-cta-bg: #3b82f6;  /* Original bright blue CTA button background */
+  --nav-cta-text: #ffffff;  /* Original white CTA button text */
+  --nav-cta-hover: #2563eb;  /* Original darker blue for CTA hover */
+  
+  /* Skill Card Colors */
+  --skill-bg: #111827; /* Darker skill background */
+  --skill-border: #1e293b; /* Darker skill border */
+  --skill-hover: #1e293b; /* Darker skill hover */
+  --skill-text: #e2e8f0; /* Light skill text */
+  --skill-tag-bg: #1e293b; /* Darker tag background */
+  --skill-tag-hover: #3b82f6; /* Bright tag hover */
+  --skill-icon-bg: rgba(59, 130, 246, 0.1); /* Subtle icon background */
+  --skill-icon-hover: rgba(59, 130, 246, 0.2); /* Brighter icon hover */
+  
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.2);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+/* Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  height: 100%;
+  /* Force permanent scrollbar */
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  /* Force permanent scrollbar */
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+  /* Reserve space for scrollbar */
+  padding-right: var(--scrollbar-width);
+  padding-top: 0; /* Removed padding to move content higher */
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  /* Removed padding-top here as it's now on body */
+}
+
+/* Permanent Scrollbar Styles */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+  background-color: var(--background);
+  /* Prevent hiding */
+  display: block !important;
+  visibility: visible !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  /* Prevent hiding */
+  display: block !important;
+  visibility: visible !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--surface);
+  border: 2px solid var(--background);
+  border-radius: 0;
+  min-height: 40px;
+  /* Prevent hiding */
+  display: block !important;
+  visibility: visible !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--background);
+  /* Prevent hiding */
+  display: block !important;
+  visibility: visible !important;
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--surface) var(--background);
+  /* Force scrollbar to be always visible */
+  scrollbar-gutter: stable;
+}
+
+/* Page Container Base Styles */
+.page-container {
+  min-height: calc(100vh - var(--navbar-height));
+  padding-top: var(--page-padding-top);
+  position: relative;
+  z-index: 1;
+  /* Account for permanent scrollbar */
+  width: calc(100% - var(--scrollbar-width));
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-top: 2rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-top: 1.25rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+
+p {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-normal);
+}
+
+a:hover {
+  color: var(--hover-color);
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.text-gradient {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-shadow-light {
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+}
+
+.text-shadow-dark {
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Glassmorphism card base styles */
+.glass-card {
+  background: rgba(17, 24, 39, 0.8);
+  border: 1px solid rgba(30, 41, 59, 0.5);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all var(--transition-normal);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--primary);
+  color: var(--text);
+}
+
+/* Focus outlines for accessibility */
+:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Section Titles common styles */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--gradient);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+/* Button and input base styles */
+button, a {
+  font-family: var(--font-sans);
+}
+
+input, textarea, select {
+  font-family: var(--font-sans);
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary);
+}
+
+/* Basic link styles */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-normal);
+}
+
+a:hover {
+  color: var(--hover-color);
+}
+
+/* Text utility classes for gradients and shadows */
+.text-gradient {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-shadow-light {
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+}
+
+.text-shadow-dark {
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  :root {
+    --page-padding-top: calc(var(--navbar-height) + 2rem); /* Adjusted for mobile */
+    --scrollbar-width: 10px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-top: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    margin-top: 1rem;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-padding-top: calc(var(--navbar-height) + 1.5rem); /* Further adjusted for small mobile */
+    --scrollbar-width: 8px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-top: 1.25rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    margin-top: 1rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 0.875rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* Chrome-specific fixes for permanent scrollbar */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  html, body {
+    overflow-y: scroll !important;
+    scrollbar-gutter: stable !important;
+  }
+  
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-thumb,
+  ::-webkit-scrollbar-corner {
+    display: block !important;
+    visibility: visible !important;
+    -webkit-appearance: none !important;
+  }
+}
+
+/* Global Navbar Styles */
+.navbar {
+  height: var(--navbar-height);
+  padding: 1rem 2rem !important; /* Original padding */
+  display: flex;
+  align-items: center;
+  background-color: var(--nav-bg) !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar .nav-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* Original value */
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 1.5rem !important; /* Original font size */
+  font-weight: 700 !important;
+  color: var(--nav-text) !important;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navbar-brand span:first-child {
+  color: var(--primary-color);
+}
+
+.navbar-brand span:last-child {
+  color: var(--nav-text);
+}
+
+.navbar .navbar-right-group {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar .navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navbar .navbar-links .nav-link {
+  font-size: 0.95rem !important; /* Original font size */
+  font-weight: 500 !important;
+  color: var(--nav-text) !important;
+  padding: 0.5rem 1rem !important; /* Original padding */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar .navbar-links .nav-link:hover {
+  color: var(--nav-hover) !important;
+}
+
+/* Specific CTA Button Override */
+.navbar .navbar-links .cta-button,
+.navbar .nav-content .navbar-right-group .navbar-links .cta-button,
+.navbar .navbar-links a.cta-button {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  color: var(--nav-cta-text) !important;
+  background-color: var(--nav-cta-bg) !important;
+  padding: 0.4rem 1.2rem !important;
+  border-radius: 4px !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(0) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1.2 !important;
+  min-width: auto !important;
+  width: auto !important;
+  margin: 0 !important;
+}
+
+.navbar .navbar-links .cta-button:hover,
+.navbar .nav-content .navbar-right-group .navbar-links .cta-button:hover,
+.navbar .navbar-links a.cta-button:hover {
+  background-color: var(--nav-cta-hover) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3) !important;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 70px; /* Original mobile navbar height */
+  }
+  
+  .navbar .nav-content {
+    padding: 0 1rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.3rem !important; /* Original mobile brand font size */
+  }
+  
+  .navbar .navbar-right-group {
+    gap: 1rem;
+  }
+
+  .navbar .navbar-links {
+    display: none;
+  }
+  
+  .navbar .navbar-links .nav-link,
+  .navbar .navbar-links .cta-button {
+    font-size: 0.8rem !important;
+    padding: 0.35rem 1rem !important;
+    margin: 0 !important;
+  }
+}
