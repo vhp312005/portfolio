@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = () => {
   const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
-    { path: '/case-studies', label: 'Case Studies' },
+    { path: '/projects', label: 'Case Studies' },
     { path: '/services', label: 'Services' },
     // { path: '/testimonials', label: 'Testimonials' }, // Commented out to hide from navigation
     { path: '/contact', label: 'Contact' }

@@ -1,3 +1,6 @@
+.app {
+  padding-top: var(--navbar-height); /* Add padding to account for fixed navbar */
+}
 
 
 

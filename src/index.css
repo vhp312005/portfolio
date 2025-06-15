@@ -9,7 +9,7 @@
   --text-secondary: #a0a0a0;
   --gradient: linear-gradient(135deg, var(--primary), var(--accent));
   --navbar-height: 80px;
-  --page-padding-top: calc(var(--navbar-height) + 1rem); /* Added small space below navbar */
+  --page-padding-top: var(--navbar-height); /* Adjusted to remove extra space below navbar */
   --scrollbar-width: 12px;
   
   /* Dark Theme Colors */
@@ -101,7 +101,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background);
   color: var(--text);
-  min-height: 100vh;
+  /* Removed min-height: 100vh to allow content to position higher */
   overflow-x: hidden;
   position: relative;
   /* Force permanent scrollbar */
@@ -113,7 +113,7 @@ body {
 }
 
 #root {
-  min-height: 100vh;
+  /* Removed min-height: 100vh to allow content to position higher */
   display: flex;
   flex-direction: column;
   background-color: var(--background);
@@ -187,7 +187,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 3.5rem;
-  margin-top: 2rem;
+  margin-top: 0; /* Removed margin-top to bring content higher */
 }
 
 h2 {
@@ -349,6 +349,7 @@ a:hover {
   }
   
   h1 {
+  
     font-size: 2.5rem;
     margin-top: 1.5rem;
   }

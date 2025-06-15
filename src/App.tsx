@@ -8,6 +8,7 @@ import About from './pages/About'
 // import Testimonials from './pages/Testimonials' // Commented out to hide the page
 import Contact from './pages/Contact'
 import CaseStudy from './pages/CaseStudy'
+import TestPage from './pages/TestPage'
 import './App.css'
 
 const AppContent = () => {
@@ -33,11 +34,12 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/case-studies" element={<ProjectsPage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/case-study/:id" element={<CaseStudy />} />
         <Route path="/about" element={<About />} />
         {/* <Route path="/testimonials" element={<Testimonials />} /> */}
         <Route path="/contact" element={<Contact />} />
+        <Route path="/test-page" element={<TestPage />} />
       </Routes>
     </div>
   );

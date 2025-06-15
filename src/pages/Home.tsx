@@ -27,7 +27,7 @@ const Home = () => {
               Get a Free Strategy Call
               <span className="arrow">→</span>
             </Link>
-            <Link to="/case-studies" className="cta-button secondary">
+            <Link to="/projects" className="cta-button secondary">
               View Our Work
             </Link>
           </div>
@@ -168,7 +168,7 @@ const Home = () => {
               using custom AI agents, reducing screening time by 40% while 
               improving candidate quality.
             </p>
-            <Link to="/case-studies" className="view-case-study">
+            <Link to="/projects" className="view-case-study">
               Read the Full Case Study <span>→</span>
             </Link>
           </motion.div>

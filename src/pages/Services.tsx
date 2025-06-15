@@ -25,7 +25,7 @@ const Services: React.FC = () => {
               Get Started
               <span className="arrow">→</span>
             </Link>
-            <Link to="/case-studies" className="cta-button secondary">
+            <Link to="/projects" className="cta-button secondary">
               View Case Studies
             </Link>
           </div>

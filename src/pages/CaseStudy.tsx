@@ -218,17 +218,6 @@ const CaseStudy: React.FC = () => {
             </a>
           </div>
         </motion.div>
-        
-        <motion.div 
-          className="hero-visual"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="project-image">
-            <img src={caseStudy.image} alt={caseStudy.title} />
-          </div>
-        </motion.div>
       </section>
 
       {/* Overview Section */}
