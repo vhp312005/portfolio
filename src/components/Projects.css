@@ -60,11 +60,11 @@
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  gap: 0;
 }
 
 .project-card {
-  background: var(--background);
+  background: linear-gradient(145deg, var(--surface) 0%, rgba(26, 26, 26, 0.8) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
   overflow: hidden;
@@ -75,10 +75,10 @@
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-8px) scale(1.02);
   border-color: var(--primary);
-  box-shadow: 0 8px 30px rgba(0, 242, 254, 0.15);
-  background: var(--background);
+  box-shadow: 0 12px 40px rgba(0, 242, 254, 0.25);
+  background: linear-gradient(145deg, var(--surface) 0%, rgba(26, 26, 26, 0.9) 100%);
 }
 
 .project-image-container {

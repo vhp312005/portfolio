@@ -46,43 +46,43 @@ const Services: React.FC = () => {
         >
           <h3>AI Development & Consulting</h3>
           <div className="services-grid">
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>AI Consulting</h4>
               <p>Transform confusion into clarity, turning your boldest visions into actionable roadmaps for AI integration.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>AI Software Development</h4>
               <p>Custom-built AI solutions that evolve, learn, and deliver measurable results tailored to your unique needs.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>Generative AI Development</h4>
               <p>Unleash unprecedented innovation, creating captivating content and astounding creative assets with AI.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>AI Agent Development</h4>
               <p>Intelligent digital workforce members that automate complex tasks while maintaining the human touch.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>ChatGPT Development</h4>
               <p>Custom conversational AI that speaks your brand's language fluently, enhancing user interaction.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>LLM Development</h4>
               <p>AI that truly comprehends your industry's language, integrating seamlessly into your specific workflow.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>AI Integration</h4>
               <p>Seamlessly incorporate AI technologies into existing systems to improve efficiency and decision-making processes.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>Healthcare AI Consulting</h4>
               <p>Expert advice on implementing AI solutions to streamline healthcare operations and improve patient outcomes.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>Machine Learning Development</h4>
               <p>Building predictive models and intelligent algorithms to drive data-driven decision-making.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>Computer Vision Services</h4>
               <p>Leverage advanced image and video analysis to automate visual data processing and extract actionable insights.</p>
             </div>
@@ -99,19 +99,19 @@ const Services: React.FC = () => {
         >
           <h3>Web Development Solutions</h3>
           <div className="services-grid">
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>Website Development</h4>
               <p>Crafting digital symphonies that sing your brand's story, meticulously engineered for lasting impressions.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>Website Maintenance</h4>
               <p>Dedicated digital guardians ensuring your online presence stays fresh, secure, and performing at peak efficiency.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>Website Performance</h4>
               <p>Optimizing every millisecond for blazing-fast digital experiences that convert visitors into loyal customers.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>CMS Development</h4>
               <p>Bespoke CMS solutions putting you in complete control of your digital content, making updates effortless.</p>
             </div>
@@ -128,11 +128,11 @@ const Services: React.FC = () => {
         >
           <h3>Mobile App Development</h3>
           <div className="services-grid">
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>Mobile App Development</h4>
               <p>Crafting stunning cross-platform applications with Flutter that feel native on every device, loved by users.</p>
             </div>
-            <div className="service-card glass-card">
+            <div className="service-card">
               <h4>MVP Development</h4>
               <p>Building lean, powerful MVPs that validate your vision, capture early adopters, and provide a perfect foundation.</p>
             </div>
